@@ -4,5 +4,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface Reader {
-     public void read(String inputFilePath);
+      List<Map<String, Object>> read(String inputFilePath);
 }
