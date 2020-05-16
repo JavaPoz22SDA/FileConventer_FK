@@ -9,11 +9,13 @@ public class Converter {
 
         ReaderFactory readerFactory = new ReaderFactory();
         Reader reader = readerFactory.produce(sourceFilePath);
-        List<Map<String, Object>> json = reader.read(sourceFilePath);
 
         if(reader instanceof JSONReader){
-            System.out.println(json);
             System.out.println("Działa, mam obiekt JSONReader");
         }
+        if(reader instanceof CSVReader){
+            System.out.println("Działa, mam obiekt CSVReader");
+        }
+        System.out.println(reader.read(sourceFilePath));
     }
 }
