@@ -25,15 +25,15 @@ public class CSVReader implements Reader {
             String content = new String(bytes);
             String[] dataArray = content.split("\\r");
 
-            Map<String, Object> map = new HashMap<>();
-            for (String line : dataArray){
-                String[] head = line.split(":");
-                String[] obj = line.split(":");
-                for (int i = 0; i < obj.length; i++) {
-                    map.put(head[i], obj[i]);
+                for (String line : dataArray){
+                    Map<String, Object> map = new HashMap<>();
+                    String[] head = dataArray[0].split(";");
+                    String[] obj = line.split(";");
+                    for (int i = 0; i < obj.length; i++) {
+                        map.put(head[i], obj[i]);
+                    }
+                    result.add(map);
                 }
-                result.add(map);
-            }
         }catch (IOException ex){
             ex.printStackTrace();
         }
