@@ -1,21 +1,19 @@
 package pl.sda.fileConverter;
 
-import java.util.List;
-import java.util.Map;
+import pl.sda.fileConverter.read.Reader;
+import pl.sda.fileConverter.read.ReaderFactory;
+import pl.sda.fileConverter.writ.Writer;
+import pl.sda.fileConverter.writ.WriterFactory;
 
 public class Converter {
 
     public void convert(String sourceFilePath, String outputFilePath){
-
+        WriterFactory writerFactory = new WriterFactory();
         ReaderFactory readerFactory = new ReaderFactory();
         Reader reader = readerFactory.produce(sourceFilePath);
+        Writer writer = writerFactory.produce(outputFilePath);
 
-        if(reader instanceof JSONReader){
-            System.out.println("Działa, mam obiekt JSONReader");
-        }
-        if(reader instanceof CSVReader){
-            System.out.println("Działa, mam obiekt CSVReader");
-        }
-        System.out.println(reader.read(sourceFilePath));
+        writer.write(outputFilePath, reader.read(sourceFilePath));
+
     }
 }

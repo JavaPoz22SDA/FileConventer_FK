@@ -1,4 +1,4 @@
-package pl.sda.fileConverter;
+package pl.sda.fileConverter.read;
 
 import java.util.List;
 import java.util.Map;

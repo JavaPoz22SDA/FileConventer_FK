@@ -1,4 +1,4 @@
-package pl.sda.fileConverter;
+package pl.sda.fileConverter.read;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,15 +14,12 @@ import java.util.Map;
 
 public class JSONReader implements Reader {
 
-    private Path path;
-
     @Override
     public List<Map<String, Object>> read(String inputFilePath) {
         List<Map<String, Object>> result = new ArrayList<>();
         try {
-            path = Paths.get(inputFilePath);
+            Path path = Paths.get(inputFilePath);
             byte[] bytes = Files.readAllBytes(path);
-//            System.out.println(bytes);
             String content = new String(bytes);
 
             JSONArray jsonArray = new JSONArray(content);

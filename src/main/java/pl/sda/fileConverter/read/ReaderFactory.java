@@ -1,4 +1,4 @@
-package pl.sda.fileConverter;
+package pl.sda.fileConverter.read;
 
 public class ReaderFactory {
 

@@ -1,7 +1,5 @@
-package pl.sda.fileConverter;
+package pl.sda.fileConverter.read;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -25,6 +23,7 @@ public class ExcelReader implements Reader {
             Sheet sheet = workbook.getSheetAt(0);
 
             Iterator<Row> rowIterator = sheet.rowIterator();
+            rowIterator.next();
             while (rowIterator.hasNext()){
                 int size = sheet.getRow(0).getPhysicalNumberOfCells();
                 Map<String, Object> map = new HashMap<>();
